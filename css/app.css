@@ -1,0 +1,215 @@
+.container-fluid {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.row {
+    margin: 0;
+}
+
+.container-fluid h1 {
+    margin: 0;
+    padding: 1em 0;
+    background: #ccc;
+    text-align: center;
+}
+
+#welcomeView {
+    padding: 10%;
+    text-align: center;
+    font-size: 2em;
+}
+
+#welcomeView .btn-create {
+    margin-top: 2em;
+}
+
+/*sideBarView*/
+
+#sideBarView {
+    display: none;
+    background: #eee;
+    overflow: hidden;
+}
+
+#sideBarView h2,
+#sideBarView .peopleNum {
+    padding: 0 5%;
+}
+
+#sideBarView .form-control {
+    width: 20%;
+    margin-left: 1em;
+    display: inline-block;
+}
+
+#sideBarView .table-responsive {
+    margin-top: 12%;
+    background: #ccc;
+}
+
+#sideBarView .table-responsive td {
+    color: #660000;
+}
+
+#sideBarView .price {
+    padding-right: 8px;
+    color: #660000;
+    font-weight: bold;
+    text-align: right;
+}
+
+#btn-confirmDin {
+    display: block;
+    margin: 2em auto;
+}
+
+/*searchDishView*/
+
+#searchDishView,
+#dishDetailsView {
+    display: none;
+    overflow: hidden;
+}
+
+.searchWrap {
+    border-bottom: 2px solid #333;
+}
+
+.searchWrap h2 {
+    padding: 0 15px;
+}
+
+.searchWrap .col-md-4 {
+    margin-bottom: 5%;
+}
+
+#dishItemView .dish-list .dish-item {
+    cursor: pointer;
+}
+
+.dish-list {
+    margin-top: 5em;
+}
+
+.dish-list .dish-item {
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.dish-list .dish-item .dish-img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #333;
+}
+
+.dish-list .dish-item .dish-name {
+    border: 1px solid #333;
+    border-top: 0;
+    background: #eee;
+    padding: 0.5rem 0;
+    font-weight: bold;
+}
+
+/*dishDetailsView*/
+
+#dishInfo img {
+    width: 100%;
+}
+
+#dishInfo .p-info {
+    margin: 2em 0;
+}
+
+#backToSerBtn,
+#printRecipe {
+    margin-bottom: 2em;
+}
+#dishIngrendients {
+    margin: 4em 0;
+    background: #FFCC66;
+    overflow: hidden;
+}
+#dishIngrendients .table {
+    margin-bottom: 0;
+}
+/*dinnerInfoView topBarView*/
+
+#dinnerInfoView,
+#topBarView,
+#dinnerRecipeView {
+    display: none;
+    padding: 0 5%;
+}
+
+#topBarView {
+    padding-bottom: 10px;
+    margin-bottom: 5%;
+    border-bottom: 2px solid;
+}
+
+#topBarView h2 {
+    float: left;
+}
+
+#backToEditBtn {
+    float: right;
+    margin-top: 20px;
+}
+
+#dinnerInfoView .dinnerList {
+    width: 100%;
+    text-align: center;
+    min-height: 200px;
+    height: auto !important;
+}
+
+/*dinnerInfoView*/
+
+#dinnerInfoView .printRecipe {
+    padding-top: 5em;
+    text-align: center;
+    border-top: 2px solid #ccc;
+}
+
+#dinnerInfoView .dish-price {
+    color: #660000;
+    font-weight: bold;
+    text-align: right;
+    padding: 0.5em 0;
+}
+
+#dinnerInfoView .total-item {
+    padding-top: 20%;
+    font-size:30px;
+    border-left: 1px solid #ccc;
+}
+
+#dinnerInfoView .total-item .dish-name {
+    background: #fff;
+    border: 0;
+    text-align: left;
+}
+
+#dinnerInfoView .total-item .dish-price {
+    text-align: left;
+}
+
+/*dinnerRecipeView*/
+
+#dinnerRecipeView .recipe-item {
+    margin-bottom: 10%;
+}
+
+#dinnerRecipeView img {
+    width: 100%;
+}
+
+#dinnerRecipeView h3 {
+    margin-top: 10px;
+}

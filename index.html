@@ -7,13 +7,132 @@
     <title>Dinner planner</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+		
+		<link rel="stylesheet" href="css/app.css">
 
   </head>
   <body>
-	<div class="container">
+	<div class="container-fluid clearfix">
 		<h1>Dinner planner</h1>
-		<div id="exampleView">
+		<div id="welcomeView">
+			<div class="welcome-text">We can with good conscience say that we have one of Sweden's best Asian buffets, which we serve during both lunch and dinner. 
+				Here you will find sushi, Thai dishes, Chinese Dim Sum and other hot and cold Asian specialties. It is simply a dazzling Asian smorgasbord! 
+				Of course, it is also good to order from our à la carte menu during the evening.</div>
+			<button type="button" id="createBtn" class="btn btn-warning btn-lg btn-create">Create new dinner</button>
+		</div>
+		<div class="row">
+			<!-- Create Sidebar View-->
+			<div id="sideBarView"class="col-md-3">
+				<h2>My Dinner</h2>
+				<div class="peopleNum">
+					<span class="peopleTxt">People</span>
+					<span class="numOfPeople"></span>
+					<!----
+					<select class="form-control" id="guests-num">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select> -->
+				</div>
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Dish Name</th>
+								<th class="text-right">Cost</th>
+							<tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<p class="price">SEK&nbsp;&nbsp;&nbsp;<span class="num">0.00</span></p>
+				<button type="button" id="btn-confirmDin" class="btn btn-warning btn-lg" disabled="disabled">Confirm dinner</button>
+			</div>
+	
+			 <!-- Create Select Dish Screen -->
+			<div id="searchDishView" class="col-md-9">
+				<div class="searchWrap" class="clearfix">
+					<h2>FIND A DISH</h2>
+					<div class="row">
+						<div class="col-md-4">
+							<input type="text" id="inputKey" class="form-control" placeholder="Enter key words">
+						</div>
+						<div class="col-md-4">
+							<select class="form-control" id="selectType">
+								<!-- <option>All</option> -->
+								<option>starter</option>
+								<option>main dish</option>
+								<option>dessert</option>
+							</select>
+						</div>
+						<div class="col-md-4">
+							<button type="button" id="searchBtn" class="btn btn-warning btnSearch">Search</button>
+						</div>
+					</div>					
+				</div>
+	
+				<div id="dishItemView">
+					<div class="dish-list row">
+					</div>
+				</div>
+			</div>
+	
+			<!-- Create Dish Detail Screen -->
+			<div id="dishDetailsView" class="col-md-9">
+				<div class="row">
+					<div id="dishInfo" class="col-md-6">
+						<h2></h2>
+						<img src="" class="img-rounded">
+						<p class="p-info"></p>
+						<button type="button" id="backToSerBtn" class="btn btn-default btn-warning">Back to Search</button>
+					</div>
+					<div id="dishIngrendients" class="col-md-6">
+						<h4>Ingredients For <span class="num"></span> People</h4>
+						<table class="table">
+							<tbody></tbody>
+							<tfoot>
+								<tr>
+									<td>
+										<button type="button" id="addToMenuBtn" class="btn btn-warning">Add to Menu</button>
+									</td>
+									<td></td>
+									<td>SEK</td>
+									<td class="total-price"></td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+			</div>
+	
+		</div>
+		
+		<!-- Create TopBar of Dinner Info Screen -->
+		<div id="topBarView" class="clearfix">
+			<h2 class="numOfPeople">My Dinner: <span class="num">0</span> People</h2>
+			<button type="button" id="backToEditBtn" class="btn btn-default btn-warning">Go Back To Edit Dinner</button>
+		</div>
+
+		<!-- Create Dinner Info Screen -->
+		<div id="dinnerInfoView">	
+			<div class="dish-list row">
+			</div>
+			<div class="printRecipe">
+				<button type="button" id="printRecipe" class="btn btn-warning btn-lg">Print Full Recipe</button>
+			</div>
+		</div>
+
+
+
+		<!-- Create Print Recipe Screen -->
+		<div id="dinnerRecipeView">
+		</div>
+	
+		<!-- <div id="exampleView">
 			<div>
 				Number of guests: <span id="numberOfGuests"></span>
 			</div>
@@ -21,10 +140,10 @@
           <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
 				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
-    <!-- jQuery, only for use by Bootstrap -->
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
@@ -32,7 +151,15 @@
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
+	<!-- <script src="js/view/exampleView.js"></script> -->
 	<!-- TODO: Here you should include JS code for your other views -->
+	<script src="js/view/welcomeView.js"></script>
+	<script src="js/view/sideBarView.js"></script>
+	<script src="js/view/searchDishView.js"></script>
+	<script src="js/view/dishItemView.js"></script>
+	<script src="js/view/dishDetailsView.js"></script>
+	<script src="js/view/topBarView.js"></script>
+	<script src="js/view/dinnerInfoView.js"></script>
+	<script src="js/view/dinnerRecipeView.js"></script>
   </body>
 </html>

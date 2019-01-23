@@ -1,60 +1,115 @@
 //DinnerModel Object constructor
-class DinnerModel {
-
-    constructor(){
-	this.dishes=dishesConst; // to be replaced in lab 3
-	
+var DinnerModel = function() {
+ 
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
-    }
+	this.numberOfGuests = 8;
+	this.selectedDishes = [{
+		'id':1,
+		'name':'French toast',
+		'type':'starter',
+		'image':'toast.jpg',
+		'description':"In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.",
+		'ingredients':[{ 
+			'name':'eggs',
+			'quantity':0.5,
+			'unit':'',
+			'price':10
+			},{
+			'name':'milk',
+			'quantity':30,
+			'unit':'ml',
+			'price':6
+			},{
+			'name':'brown sugar',
+			'quantity':7,
+			'unit':'g',
+			'price':1
+			},{
+			'name':'ground nutmeg',
+			'quantity':0.5,
+			'unit':'g',
+			'price':12
+			},{
+			'name':'white bread',
+			'quantity':2,
+			'unit':'slices',
+			'price':2
+			}]
+		}];
 
-	setNumberOfGuests(num) {
+	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
+		this.numberOfGuests = 7;
 	}
 	
-	getNumberOfGuests() {
+	this.getNumberOfGuests = function(num) {
 		//TODO Lab 1
+		this.numberOfGuests = 7;
 	}
 
 	//Returns the dish that is on the menu for selected type 
-	getSelectedDish(type) {
+	this.getSelectedDish = function(type) {
 		//TODO Lab 1
+		
 	}
 
 	//Returns all the dishes on the menu.
-	getFullMenu() {
+	this.getFullMenu = function() {
 		//TODO Lab 1
+		return dishes;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
-	getAllIngredients() {
+	this.getAllIngredients = function(data) {
 		//TODO Lab 1
+		if (data && data.ingredients) {
+			return data.ingredients;
+		} else {
+			return [];
+		}
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
-	getTotalMenuPrice() {
+	this.getTotalMenuPrice = function(data) {
 		//TODO Lab 1
+		var totalPrice = 0;
+		var allIngredients = this.getAllIngredients(data);
+		for (var j = 0; j < allIngredients.length; j++) {
+			totalPrice += allIngredients[j].price*this.numberOfGuests;
+		}
+		return totalPrice.toFixed(2);
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	addDishToMenu(id) {
+	////which means the newest dish of each type would be kept in the end
+	this.addDishToMenu = function(data) {
 		//TODO Lab 1 
+		var type = data.type;
+		var selectedDishes = this.selectedDishes;
+		for( var i = 0; i < selectedDishes.length; i++) {
+			if(selectedDishes[i].type == type) {
+				this.removeDishFromMenu(i);
+				break;
+			}
+		}
+		this.selectedDishes.push(data);
 	}
 
 	//Removes dish from menu
-	removeDishFromMenu(id) {
+	this.removeDishFromMenu = function(id) {
 		//TODO Lab 1
+		this.selectedDishes.splice(id, 1); 
 	}
 
-    
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	getAllDishes(type,filter) {
-	  return this.dishes.filter(function(dish) {
-		let found = true;
+	this.getAllDishes = function (type,filter) {
+	  return dishes.filter(function(dish) {
+		var found = true;
 		if(filter){
 			found = false;
 			dish.ingredients.forEach(function(ingredient) {
@@ -72,25 +127,24 @@ class DinnerModel {
 	}
 
 	//function that returns a dish of specific ID
-	getDish (id) {
-	    for(let dsh of this.dishes){
-		if(dsh.id == id) {
-		    return dsh;
+	this.getDish = function (id) {
+	  for(key in dishes){
+			if(dishes[key].id == id) {
+				return dishes[key];
+			}
 		}
-	    }
-	    return undefined;
 	}
-}
 
-	// the dishes constant contains an array of all the 
-	// dishes in the database. Each dish has id, name, type,
+
+	// the dishes variable contains an array of all the 
+	// dishes in the database. each dish has id, name, type,
 	// image (name of the image file), description and
 	// array of ingredients. Each ingredient has name, 
 	// quantity (a number), price (a number) and unit (string 
 	// defining the unit i.e. "g", "slices", "ml". Unit
 	// can sometimes be empty like in the example of eggs where
 	// you just say "5 eggs" and not "5 pieces of eggs" or anything else.
-        const dishesConst = [{
+	var dishes = [{
 		'id':1,
 		'name':'French toast',
 		'type':'starter',
@@ -333,4 +387,4 @@ class DinnerModel {
 		}
 	];
 
-
+}
