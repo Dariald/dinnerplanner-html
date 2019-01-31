@@ -11,3 +11,12 @@ What's in the project
 * [js/view/](https://github.com/kth-csc-iprog/dinnerplanner-html/tree/master/js/view) - here you can find a JavaScript code of an example view. The view sets up some initial components and their values.
 * [js/app.js](https://github.com/kth-csc-iprog/dinnerplanner-html/blob/master/js/app.js) - this is the overall code of the application. It is responsible for initial setup of the app (when the page loads for the first time). 
 * [images/](https://github.com/kth-csc-iprog/dinnerplanner-html/tree/master/images) - folder contains some pictures you can use for your dishes
+
+
+Updates for lab2
+=================================================
+* [index.html] import new controller files;
+* [dinnerModel.js] Implement the observer parts, add notifyObserver() call methods to motify model;
+* [app.js] General controller, initialize the views and controllers, control the view hide or show;
+* [view.js] add addObserver() to attach the view itself as model observer;
+* [controller.js] listen to events, modify the model, trigger view to update;
