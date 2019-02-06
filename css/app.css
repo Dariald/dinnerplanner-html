@@ -11,7 +11,9 @@
 .row {
     margin: 0;
 }
-
+.loading {
+    display: none;
+}
 .container-fluid h1 {
     margin: 0;
     padding: 1em 0;

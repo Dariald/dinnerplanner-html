@@ -13,6 +13,14 @@ What's in the project
 * [images/](https://github.com/kth-csc-iprog/dinnerplanner-html/tree/master/images) - folder contains some pictures you can use for your dishes
 
 
+
+Updates for lab3
+=================================================
+* [index.html] Update searchDishView, import masonry.pkgd.min.js and imagesloaded.pkgd.min.js;
+* [dinnerModel.js] Update getAllDishes(), getDish(), getSelectedDish(), getDetail() - Update data, add error message;
+* [view.js] Update dishItemView.js, dishDetailsView.js, sideBarView.js, dishRecipeView.js, dinnerInfoView.js - Update data, add loading;
+
+
 Updates for lab2
 =================================================
 * [index.html] import new controller files;

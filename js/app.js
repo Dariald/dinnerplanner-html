@@ -31,7 +31,7 @@ $(function() {
 	var dishDetailsCtrl = new DishDetailsCtrl(dishDetailsView, model,backToSearch);
 	var topBarCtrl = new TopBarCtrl(topBarView, model,backToEditDinner);
 	var dinnerInfoCtrl = new DinnerInfoCtrl(dinnerInfoView, model, showDinnerRecipe);
-	var dinnerRecipeCtrl = new DinnerRecipeCtrl(dinnerRecipeView, model);
+	//var dinnerRecipeCtrl = new DinnerRecipeCtrl(dinnerRecipeView, model);
 
 
 	//Add show/hide() function for view
@@ -71,8 +71,6 @@ $(function() {
 		$dinnerInfoView.hide();
 		$dinnerRecipeView.show();
 	}
-
-
 
 
 	/**

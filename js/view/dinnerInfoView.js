@@ -7,16 +7,16 @@ var DinnerInfoView = function (container, model) {
         var tpl = '';
         var totalPrice = 0;
         for (var i = 0; i < dishes.length; i++) {
-                var price = model.getTotalMenuPrice(dishes[i]);
-                tpl += '\
-                    <div class="dish-item col-md-3">\
-                    <img class="dish-img" src="/images/'+dishes[i].image+'"></br>\
-                    <div class="dish-name">'+dishes[i].name+'</div>\
-                    <div class="dish-price">'+price+'SEK</div>\
-                 </div>\
-        ';
-        totalPrice += Number(price);
-    }
+            var price = (dishes[i].pricePerServing*model.numberOfGuests).toFixed(2);
+            tpl += '\
+                <div class="dish-item col-md-3">\
+                <img class="dish-img" src="'+dishes[i].image+'"></br>\
+                <div class="dish-name">'+dishes[i].title+'</div>\
+                <div class="dish-price">'+price+'SEK</div>\
+                </div>\
+            ';
+            totalPrice += Number(price);
+        }
    
         tpl += '\
         <div class="dish-item total-item col-md-3">\

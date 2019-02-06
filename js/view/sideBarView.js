@@ -13,10 +13,10 @@ var SideBarView = function (container, model) {
             var trTpl = '';
             var totalPrice = 0;
             for (var i = 0; i < dishes.length; i++) {
-                var price = model.getTotalMenuPrice(dishes[i]);
+                var price = (dishes[i].pricePerServing*model.numberOfGuests).toFixed(2);
                 trTpl += '\
                     <tr>\
-                        <td>'+dishes[i].name+'</td>\
+                        <td>'+dishes[i].title+'</td>\
                         <td class="text-right">'+price+'</td>\
                     </tr>\
                 ';
