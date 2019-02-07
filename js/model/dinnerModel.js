@@ -277,6 +277,7 @@ var DinnerModel = function() {
   this.selectedDishes = [];
   this.dishDetail = null;
   this.isLoading = false;
+  this.isError = false;
 
   this.setNumberOfGuests = function(num) {
     //TODO Lab 1
@@ -290,6 +291,7 @@ var DinnerModel = function() {
     this.notifyObservers();
   };
 
+  
 
   //Returns the dish that is on the menu for selected type
   this.getSelectedDish = function(type, filter) {
@@ -300,12 +302,13 @@ var DinnerModel = function() {
 		this.isLoading = false;
 		this.notifyObservers();
    }).catch( error => {
-		/* do something with the error */
+    /* do something with the error */
+    this.isError = true;
+    this.notifyObservers();
     console.log(error);
-    alert("Something wrong with the Internet, please try again later.");
-    
    });
   };
+
 
   //Returns all ingredients for all the dishes on the menu.
   // this.getAllIngredients = function(data) {
@@ -360,7 +363,7 @@ var DinnerModel = function() {
       `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=20&type=${type}&query=${filter}`,
       {
         headers: {
-          "X-Mashape-Key": "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767"
+          "X-Mashape-Key": API_KEY
         },
         method: "GET"
       }
@@ -391,7 +394,7 @@ var DinnerModel = function() {
       `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information`,
       {
         headers: {
-          "X-Mashape-Key": "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767"
+          "X-Mashape-Key": API_KEY
         },
         method: "GET"
       }
@@ -408,9 +411,10 @@ var DinnerModel = function() {
         this.notifyObservers();
       })
       .catch(error => {
-	    	/* do something with the error */
+        /* do something with the error */
+        this.isError = true;
+        this.notifyObservers();
         console.log(error);
-        alert("Something wrong with the Internet, please try again later.");
       });
   };
 

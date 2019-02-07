@@ -2,12 +2,17 @@ var DishItemView = function (container, model) {
 
     this.container = container;
 
+
     var loadMenu = function(){
+        if(model.isError){
+            alert("Something wrong with the Internet, please try again later.");
+        };
+
         if(model.isLoading) {
             container
             .find('.dish-list')
             .empty()
-            .append('loading...')
+            .append('loading...');
         } else {
             var dishes = model.allDishes.results;
             var dishesTpl = '';
@@ -31,13 +36,18 @@ var DishItemView = function (container, model) {
                 });
                 
             })
+
         }  
+       
     }
+
+       
 
     this.update=function(){
         loadMenu();
 	}
 
-	model.addObserver(this.update);
+    model.addObserver(this.update);
+
 
 }

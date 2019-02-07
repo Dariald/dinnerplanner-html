@@ -4,6 +4,10 @@ var DishDetailsView = function (container, model) {
     this.addToMenu = container.find("#addToMenuBtn");
 
     var loadDetail = function(detail){
+        if(model.isError){
+            alert("Something wrong with the Internet, please try again later.");
+        };
+        
         if (model.isLoading) {
             container.find('.loading').show();
             container.find('.row').hide();
