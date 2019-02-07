@@ -25,23 +25,17 @@ var DishItemView = function (container, model) {
             .imagesLoaded(()=>{
                 container
                 .find('.masonry')
+                //.masonry('reloadItems')
                 .masonry({
                     itemSelector: '.masonry-item'
                 });
+                
             })
         }  
     }
 
     this.update=function(){
         loadMenu();
-
-        // if(model.viewState.isDishItemViewShow) {
-        //     container.show();
-        //     loadMenu(model.searchDishes);
-		// } else {
-		// 	container.hide();
-		// }
-
 	}
 
 	model.addObserver(this.update);

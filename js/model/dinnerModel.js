@@ -295,8 +295,8 @@ var DinnerModel = function() {
   this.getSelectedDish = function(type, filter) {
     this.getAllDishes(type, filter).then(data => {
 		/* do something with new dishes */ 
-		console.log(this.allDishes,'get')
-		this.allDishes = data;
+    this.allDishes = data;
+    console.log(this.allDishes,'allDishes')
 		this.isLoading = false;
 		this.notifyObservers();
    }).catch( error => {
@@ -308,25 +308,25 @@ var DinnerModel = function() {
   };
 
   //Returns all ingredients for all the dishes on the menu.
-  this.getAllIngredients = function(data) {
-    //TODO Lab 1
-    if (data && data.ingredients) {
-      return data.ingredients;
-    } else {
-      return [];
-    }
-  };
+  // this.getAllIngredients = function(data) {
+  //   //TODO Lab 1
+  //   if (data && data.ingredients) {
+  //     return data.ingredients;
+  //   } else {
+  //     return [];
+  //   }
+  // };
 
   //Returns the total price of the menu (all the ingredients multiplied by number of guests).
-  this.getTotalMenuPrice = function(data) {
-    //TODO Lab 1
-    var totalPrice = 0;
-    var allIngredients = this.getAllIngredients(data);
-    for (var j = 0; j < allIngredients.length; j++) {
-      totalPrice += allIngredients[j].price * this.numberOfGuests;
-    }
-    return totalPrice.toFixed(2);
-  };
+  // this.getTotalMenuPrice = function(data) {
+  //   //TODO Lab 1
+  //   var totalPrice = 0;
+  //   var allIngredients = this.getAllIngredients(data);
+  //   for (var j = 0; j < allIngredients.length; j++) {
+  //     totalPrice += allIngredients[j].price * this.numberOfGuests;
+  //   }
+  //   return totalPrice.toFixed(2);
+  // };
 
   //Adds the passed dish to the menu. If the dish of that type already exists on the menu
   //it is removed from the menu and the new one added.
@@ -335,11 +335,10 @@ var DinnerModel = function() {
     //TODO Lab 1
     var selectedDishes = this.selectedDishes;
     for (var i = 0; i < selectedDishes.length; i++) {
-		if (selectedDishes[i].dishTypes == data.dishTypes) {
-			this.removeDishFromMenu(i);
-		break;}
+		  if (selectedDishes[i].dishTypes == data.dishTypes) {
+			  this.removeDishFromMenu(i);
+		    break;}
     }
-    
     this.selectedDishes.push(data);
     this.notifyObservers();
   };
@@ -401,18 +400,21 @@ var DinnerModel = function() {
 
   //function that gets details of selected dish
   this.getDetail = function(id) {
-    this.dishDetail = this.getDish(id)
-      .then(detail => {
+    this.dishDetail = this.getDish(id).then(detail => {
         /* do something with new dishes */
-		this.dishDetail = detail;
-		this.isLoading = false;
+		    this.dishDetail = detail;
+	  	  this.isLoading = false;
         console.log(this.dishDetail,'detail');
         this.notifyObservers();
       })
       .catch(error => {
-		/* do something with the error */
-      console.log(error);
-      alert("Something wrong with the Internet, please try again later.");
+	    	/* do something with the error */
+        console.log(error);
+        alert("Something wrong with the Internet, please try again later.");
       });
   };
+
+  
+
+
 };

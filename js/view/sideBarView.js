@@ -33,13 +33,6 @@ var SideBarView = function (container, model) {
 
 	this.update=function(){
         loadMenu();
-        // if(model.viewState.isSideBarViewShow) { 
-        //     container.show();
-        //     loadMenu();
-		// } else {
-        //     container.hide();
-		// }
-
 	}
 
 	model.addObserver(this.update);

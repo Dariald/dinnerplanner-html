@@ -31,17 +31,6 @@ var DinnerInfoView = function (container, model) {
            loadDinner();
     }
 
-    /**
-     * this.update=function(){
-        if(model.viewState.isDinnerInfoViewShow) {
-            container.show();
-            loadDinner();
-		} else {
-			container.hide();
-		}
-
-    } 
-    */
 
 	model.addObserver(this.update);
 

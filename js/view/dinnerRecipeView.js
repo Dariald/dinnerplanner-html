@@ -27,13 +27,6 @@ var DinnerRecipeView = function (container, model) {
 
     this.update=function(){
         loadRecipe();
-        // if(model.viewState.isDinnerRecipeViewShow) {
-        //     container.show();
-        //     loadRecipe();
-		// } else {
-		// 	container.hide();
-		// }
-
 	}
 
 	model.addObserver(this.update);

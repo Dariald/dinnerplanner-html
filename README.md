@@ -19,7 +19,7 @@ Updates for lab3
 * [index.html] Update searchDishView, import masonry.pkgd.min.js and imagesloaded.pkgd.min.js;
 * [dinnerModel.js] Update getAllDishes(), getDish(), getSelectedDish(), getDetail() - Update data, add error message;
 * [view.js] Update dishItemView.js, dishDetailsView.js, sideBarView.js, dishRecipeView.js, dinnerInfoView.js - Update data, add loading;
-
+* [controller.js] Update SearchDishCtrl.js - Improve searching experience
 
 Updates for lab2
 =================================================

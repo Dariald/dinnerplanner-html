@@ -20,7 +20,7 @@ var DishDetailsView = function (container, model) {
                 for (var i = 0; i < ingredients.length; i++) {
                     trTpl += '\
                         <tr>\
-                            <td>'+ingredients[i].amount*model.numberOfGuests+ingredients[i].unit+'</td>\
+                            <td>'+ingredients[i].amount*model.numberOfGuests+"&nbsp;"+ingredients[i].unit+'</td>\
                             <td>'+ingredients[i].name+'</td>\
                             <td>SEK</td>\
                             <td>'+(1.0*model.numberOfGuests).toFixed(2)+'</td>\
@@ -37,13 +37,6 @@ var DishDetailsView = function (container, model) {
 
     this.update=function(){
         loadDetail(model.dishDetail);
-        // if(model.viewState.isDishDetailsViewShow) {
-        //     container.show();
-        //     loadDetail(model.dishDetail);
-		// } else {
-		// 	container.hide();
-		// }
-
     }
     
 	model.addObserver(this.update);
